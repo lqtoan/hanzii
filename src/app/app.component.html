@@ -1,2 +1,103 @@
-<hanzii-nx-welcome></hanzii-nx-welcome>
-<router-outlet></router-outlet>
+<ng-container *ngIf="vm$ | async as vm">
+  <div class="header">
+    <h1><b>h4nzii</b></h1>
+    <nz-input-group class="search-input"
+                    [nzSuffix]="suffixIconSearch">
+      <input nz-input
+             [(ngModel)]="keyword"
+             [placeholder]="'ACTION.SEARCH' | translate"
+             (keydown.enter)="keyword !== vm.keyword && !vm.isLoading ? onSearch(keyword) : $event.preventDefault()" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <strong *ngIf="!vm.isLoading && vm.total"
+              class="totals">{{
+        'TOTALS' | translate : { totals: vm.total }
+        }}</strong>
+      <span nz-icon
+            nzType="search"
+            (click)="keyword !== vm.keyword && !vm.isLoading ? onSearch(keyword) : $event.preventDefault()"></span>
+    </ng-template>
+  </div>
+  <div class="main">
+    <div class="list">
+      <ng-container *ngIf="vm.isLoading; else wordsTemplate">
+        <div class="loading">
+          <span><nz-spin nzSize="large"></nz-spin></span>
+          <h4 class="slogan">{{ 'SLOGAN' | translate }}</h4>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="vm.total === 0">
+        <img class="img"
+             src="assets/images/no_result.png" />
+        <h4 [style.text-align]="'center'">{{ 'NO_RESULT' | translate }}</h4>
+        <p [style.text-align]="'center'">{{ 'AFTER_NO_RESULT' | translate }}</p>
+      </ng-container>
+      <ng-template #wordsTemplate>
+        <li *ngFor="let word of vm.words; index as i"
+            class="word">
+          <span [style.width.%]="'10'"
+                [style.color]="'#4c566a80'"
+                [style.font-size.px]="'9'"
+                [style.font-weight]="'500'"
+                [style.line-height.%]="'100'"
+                slot="index">{{ i + 1 }}:</span>
+          <span *ngIf="word.updatedDate; else createdDate"
+                class="word--date">
+            {{ 'UPDATED' | translate }}: {{ word.updatedDate | date : 'dd/MM/yyyy' }}</span>
+          <ng-template #createdDate>
+            <span class="word--date"> {{ 'CREATED' | translate }}: {{ word.createdDate | date : 'dd/MM/yyyy' }}</span>
+          </ng-template>
+          <span class="word--name">{{ word.display }}</span>
+          <span class="word--pinyin">[{{ word.pinyin }}]</span>
+          <span *ngIf="word.chinaVietnamWord !== ''"
+                class="word--chivi">({{ word.chinaVietnamWord | titlecase }})</span>
+          <span *ngIf="word.type"
+                class="word--type"><nz-tag>{{ word.type | translate | lowercase }}</nz-tag></span>
+          <span class="word--hsk">
+            <ng-container [ngSwitch]="word.hsk">
+              <ng-container *ngSwitchCase="'hsk1'">
+                <nz-tag [nzColor]="'cyan'">HSK 1</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk2'">
+                <nz-tag [nzColor]="'blue'">HSK 2</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk3'">
+                <nz-tag [nzColor]="'geekblue'">HSK 3</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk4'">
+                <nz-tag [nzColor]="'purple'">HSK 4</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk5'">
+                <nz-tag [nzColor]="'volcano'">HSK 5</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk6'">
+                <nz-tag [nzColor]="'red'">HSK 6</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'hsk79'">
+                <nz-tag [nzColor]="'magenta'">HSK 7+</nz-tag>
+              </ng-container>
+              <ng-container *ngSwitchCase="'z---'">
+                <nz-tag>--------</nz-tag>
+              </ng-container>
+            </ng-container>
+          </span>
+          <span class="word--define">{{ word.define | translate }}</span>
+          <span *ngIf="word.reference"
+                class="word--reference">{{ 'DICTIONARY.REFERENCE' | translate }}: {{ word.reference }}</span>
+        </li>
+      </ng-template>
+    </div>
+  </div>
+  <p class="copy-right">Copyright 2022 - {{ year | date : 'yyyy' }} &copy; {{ 'FOOTER' | translate }}</p>
+
+</ng-container>
+<a class="facebook"
+   nz-tooltip
+   nzTooltipTitle="Toan's Facebook"
+   nzTooltipPlacement="left"
+   target="_blank"
+   href="https://www.facebook.com/lqtoann">
+  <span nz-icon
+        nzType="facebook"
+        nzTheme="fill"></span>
+</a>

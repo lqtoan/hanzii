@@ -1,1 +1,199 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap');
+
+$black: #2e3440;
+$white: #eceff4;
+$second-white: #d8dee9;
+$primary-color: #b48ead;
+$gray: #4c566a;
+$red: #bf616a;
+$blue: #88c0d0;
+
+$big-space: 8rem;
+$medium-space: 4rem;
+$small-space: 0.5rem;
+
+$linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: $primary-color,
+    $alpha: 1,
+  ),
+  rgba(
+    $color: $blue,
+    $alpha: 0.75,
+  )
+);
+$second-linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: $primary-color,
+    $alpha: 0.75,
+  ),
+  rgba(
+    $color: $blue,
+    $alpha: 0.75,
+  )
+);
+$white-linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: $second-white,
+    $alpha: 1,
+  ),
+  rgba(
+    $color: $second-white,
+    $alpha: 0.5,
+  )
+);
+$magenta-blue-linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: $primary-color,
+    $alpha: 1,
+  ),
+  rgba(
+    $color: #5e81ac,
+    $alpha: 0.75,
+  ),
+  rgba(
+    $color: $blue,
+    $alpha: 0.75,
+  )
+);
+$blue-linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: #5e81ac,
+    $alpha: 1,
+  ),
+  rgba(
+    $color: $blue,
+    $alpha: 1,
+  )
+);
+$magenta-blue-white-linear-gradient: linear-gradient(
+  135deg,
+  rgba(
+    $color: $primary-color,
+    $alpha: 0.5,
+  ),
+  rgba(
+    $color: #81a1c1,
+    $alpha: 0.375,
+  ),
+  rgba(
+    $color: $blue,
+    $alpha: 0.375,
+  ),
+  rgba(
+    $color: $second-white,
+    $alpha: 1,
+  )
+);
+
+$primary-font: 'Quicksand', sans-serif;
+$font-size: 100%;
+$line-height: 157.15%;
+
+$transition: all 250ms ease-out;
+
+$tablet: 1024px;
+$mobile: 768px;
+
+$max-width-container: 100%;
+
+/****************** thumbnail ******************/
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+html {
+  line-height: $line-height;
+  font-size: $font-size;
+}
+body {
+  max-width: $max-width-container;
+  font-family: $primary-font !important;
+  font-display: fallback;
+  overflow-y: hidden;
+  background: $white !important;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+h2 {
+  margin-bottom: 0;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+h3 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+h4 {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+select {
+  padding: 0.5rem;
+  border: 2px solid rgba($color: $gray, $alpha: 0.75);
+  border-radius: 2rem;
+  outline: none;
+  background: transparent;
+  color: $white;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+  cursor: pointer;
+}
+
+select:hover {
+  background: rgba($color: $gray, $alpha: 0.75);
+}
+
+li {
+  list-style: none;
+}
+
+/****************** thumbnail ******************/
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}

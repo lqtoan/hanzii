@@ -1,0 +1,183 @@
+@import '/src/styles.scss';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap');
+
+.ant-tag {
+  padding: 0 0.25rem;
+}
+.header {
+  padding: 1rem calc(3 * 100vw / 12);
+  height: 7rem;
+  background: $black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    color: $primary-color;
+  }
+  small {
+    color: $white;
+  }
+  .search-input {
+    padding: 0.25rem 0.5rem;
+    width: calc(25% + 4rem);
+    border-radius: 0.5rem;
+    span:hover {
+      cursor: pointer;
+      color: $primary-color;
+    }
+  }
+  .totals {
+    color: rgba($color: $gray, $alpha: 0.25);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.main {
+  padding: 1rem calc(3 * 100vw / 12);
+  .list {
+    height: calc(100vh - 10rem);
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    .word {
+      position: relative;
+      min-height: 69.77px;
+      // height: calc(100% / 8);
+      padding: 0.25rem 0.5rem 0;
+      background: #fff;
+      border-bottom: 1px solid rgba($color: $gray, $alpha: 0.25);
+      display: flex;
+      flex-flow: row wrap;
+      align-items: baseline;
+      align-content: flex-start;
+      scroll-snap-align: start;
+      &--name {
+        color: $red;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        font-family: 'Noto Serif SC', serif;
+      }
+      &--pinyin {
+        margin-left: 0.25rem;
+        color: #81a1c1;
+      }
+      &--chivi {
+        margin-left: 0.125rem;
+        color: $blue;
+      }
+      &--type {
+        margin-left: 0.5rem;
+        .ant-tag {
+          font-size: $font-size;
+          color: rgba($color: $gray, $alpha: 0.5);
+        }
+      }
+      &--define {
+        width: calc(100% - 2rem);
+        color: $gray;
+        font-weight: 500;
+        word-wrap: break-word;
+      }
+      &--hsk {
+        margin-left: auto;
+        .ant-tag {
+          margin: 0;
+          padding: 0 0.25rem;
+          width: 3rem;
+          font-weight: 500;
+          border-radius: 7.5px;
+          border-width: 1.5px;
+        }
+      }
+      &--date {
+        width: 90%;
+        color: rgba($color: $gray, $alpha: 0.5);
+        font-size: 9px;
+        text-align: right;
+        line-height: 100%;
+      }
+      &--reference {
+        color: #ebcb8b;
+        font-size: 11px;
+        font-weight: 600;
+        font-style: italic;
+      }
+      .actions {
+        position: absolute;
+        top: 40px;
+        right: 0.5rem;
+        font-size: 16px;
+        .edit-button {
+          margin-right: 0.125rem;
+          transition: $transition;
+        }
+        .delete-button {
+          color: $red;
+          transition: $transition;
+        }
+        .edit-button:hover,
+        .delete-button:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+        transition: $transition;
+      }
+      transition: $transition;
+    }
+    .word:hover {
+      .actions {
+        opacity: 1;
+      }
+    }
+
+    .loading {
+      padding: 0.5rem;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      .slogan {
+        text-align: center;
+        margin-top: 1rem;
+      }
+    }
+
+    .img {
+      margin: auto;
+      margin-top: 15vh;
+      width: 75%;
+    }
+  }
+}
+
+.copy-right {
+  padding: 0 calc(3 * 100vw / 12);
+  font-size: 10px;
+}
+
+.facebook {
+  position: fixed;
+  bottom: 0;
+  right: calc(3 * 100vw / 12);
+  font-size: 2rem;
+}
+
+@media screen and (max-width: $tablet) {
+  .header,
+  .main {
+    padding: 1rem;
+  }
+  .copy-right {
+    padding: 0 1rem;
+  }
+  .facebook {
+    right: 1rem;
+  }
+}
+@media screen and (max-width: $tablet) {
+}
