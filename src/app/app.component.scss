@@ -12,8 +12,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  h1 {
-    color: $primary-color;
+  .logo {
+    height: 2.5rem;
+    width: auto;
+    cursor: pointer;
   }
   small {
     color: $white;
@@ -77,7 +79,7 @@
         }
       }
       &--define {
-        width: calc(100% - 2rem);
+        width: 100%;
         color: $gray;
         font-weight: 500;
         word-wrap: break-word;
@@ -179,5 +181,10 @@
     right: 1rem;
   }
 }
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: $mobile) {
+  .header {
+    .search-input {
+      width: calc(50%);
+    }
+  }
 }
