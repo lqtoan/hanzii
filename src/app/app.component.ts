@@ -1,5 +1,5 @@
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { AppService, Word } from './app.service';
+import { AppService } from './app.service';
 import { Component, OnInit } from '@angular/core';
 import { AppStore } from './app.store';
 
@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
 
   readonly vm$ = this._store.vm$;
   keyword = '';
-  words: Word[] = [];
   year = new Date();
 
   ngOnInit(): void {

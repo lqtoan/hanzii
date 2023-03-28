@@ -5,6 +5,7 @@
 .ant-tag {
   padding: 0 0.25rem;
 }
+
 .header {
   padding: 1rem calc(3 * 100vw / 12);
   height: 7rem;
@@ -37,12 +38,15 @@
   }
 }
 .main {
+  height: calc(100vh - 9rem);
   padding: 1rem calc(3 * 100vw / 12);
+  background: $white;
+  overflow: hidden;
   .list {
-    height: calc(100vh - 10rem);
+    height: 100%;
     background: #fff;
-    border-radius: 0.5rem;
     overflow: scroll;
+    border-radius: 0.5rem;
     scroll-snap-type: y mandatory;
     .word {
       position: relative;
@@ -158,6 +162,7 @@
 }
 
 .copy-right {
+  height: 1rem;
   padding: 0 calc(3 * 100vw / 12);
   font-size: 10px;
 }
