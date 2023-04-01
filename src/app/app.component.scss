@@ -1,10 +1,4 @@
 @import '/src/styles.scss';
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap');
-
-.ant-tag {
-  padding: 0 0.25rem;
-}
 
 .header {
   padding: 1rem calc(3 * 100vw / 12);
@@ -47,19 +41,17 @@
     background: #fff;
     overflow: scroll;
     border-radius: 0.5rem;
-    scroll-snap-type: y mandatory;
+    // scroll-snap-type: y mandatory;
     .word {
       position: relative;
       min-height: 69.77px;
-      // height: calc(100% / 8);
       padding: 0.25rem 0.5rem 0;
-      background: #fff;
       border-bottom: 1px solid rgba($color: $gray, $alpha: 0.25);
       display: flex;
       flex-flow: row wrap;
       align-items: baseline;
       align-content: flex-start;
-      scroll-snap-align: start;
+      // scroll-snap-align: start;
       &--name {
         color: $red;
         font-size: 24px;
@@ -78,6 +70,7 @@
       &--type {
         margin-left: 0.5rem;
         .ant-tag {
+          padding: 0 0.25rem;
           font-size: $font-size;
           color: rgba($color: $gray, $alpha: 0.5);
         }
@@ -112,34 +105,7 @@
         font-weight: 600;
         font-style: italic;
       }
-      .actions {
-        position: absolute;
-        top: 40px;
-        right: 0.5rem;
-        font-size: 16px;
-        .edit-button {
-          margin-right: 0.125rem;
-          transition: $transition;
-        }
-        .delete-button {
-          color: $red;
-          transition: $transition;
-        }
-        .edit-button:hover,
-        .delete-button:hover {
-          opacity: 0.8;
-          cursor: pointer;
-        }
-        transition: $transition;
-      }
-      transition: $transition;
     }
-    .word:hover {
-      .actions {
-        opacity: 1;
-      }
-    }
-
     .loading {
       padding: 0.5rem;
       display: flex;
@@ -152,7 +118,6 @@
         margin-top: 1rem;
       }
     }
-
     .img {
       margin: auto;
       margin-top: 15vh;
@@ -186,11 +151,12 @@
     right: 1rem;
   }
 }
+
 @media screen and (max-width: $mobile) {
   .header {
     .search-input {
       margin-left: 1rem;
-      width: calc(50% + 6rem);
+      width: calc(25% + 8rem);
     }
   }
 }

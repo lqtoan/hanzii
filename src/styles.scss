@@ -10,89 +10,6 @@ $gray: #4c566a;
 $red: #bf616a;
 $blue: #88c0d0;
 
-$big-space: 8rem;
-$medium-space: 4rem;
-$small-space: 0.5rem;
-
-$linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: $primary-color,
-    $alpha: 1,
-  ),
-  rgba(
-    $color: $blue,
-    $alpha: 0.75,
-  )
-);
-$second-linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: $primary-color,
-    $alpha: 0.75,
-  ),
-  rgba(
-    $color: $blue,
-    $alpha: 0.75,
-  )
-);
-$white-linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: $second-white,
-    $alpha: 1,
-  ),
-  rgba(
-    $color: $second-white,
-    $alpha: 0.5,
-  )
-);
-$magenta-blue-linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: $primary-color,
-    $alpha: 1,
-  ),
-  rgba(
-    $color: #5e81ac,
-    $alpha: 0.75,
-  ),
-  rgba(
-    $color: $blue,
-    $alpha: 0.75,
-  )
-);
-$blue-linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: #5e81ac,
-    $alpha: 1,
-  ),
-  rgba(
-    $color: $blue,
-    $alpha: 1,
-  )
-);
-$magenta-blue-white-linear-gradient: linear-gradient(
-  135deg,
-  rgba(
-    $color: $primary-color,
-    $alpha: 0.5,
-  ),
-  rgba(
-    $color: #81a1c1,
-    $alpha: 0.375,
-  ),
-  rgba(
-    $color: $blue,
-    $alpha: 0.375,
-  ),
-  rgba(
-    $color: $second-white,
-    $alpha: 1,
-  )
-);
-
 $primary-font: 'Quicksand', sans-serif;
 $font-size: 100%;
 $line-height: 157.15%;
@@ -164,25 +81,6 @@ img {
 a {
   display: block;
   text-decoration: none;
-}
-
-select {
-  padding: 0.5rem;
-  border: 2px solid rgba($color: $gray, $alpha: 0.75);
-  border-radius: 2rem;
-  outline: none;
-  background: transparent;
-  color: $white;
-  cursor: pointer;
-}
-
-select::-ms-expand {
-  display: none;
-  cursor: pointer;
-}
-
-select:hover {
-  background: rgba($color: $gray, $alpha: 0.75);
 }
 
 li {

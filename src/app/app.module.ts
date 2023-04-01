@@ -8,6 +8,7 @@ import { appRoutes } from './app.routes';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { CommonModule, registerLocaleData } from '@angular/common';
 import vi from '@angular/common/locales/vi';
@@ -37,7 +38,7 @@ export const nzConfig: NzConfig = {
   // }
 };
 
-const nzModules = [NzTagModule, NzSpinModule, NzInputModule, NzIconModule];
+const nzModules = [NzTagModule, NzSpinModule, NzInputModule, NzIconModule, ScrollingModule];
 
 @NgModule({
   declarations: [AppComponent],
