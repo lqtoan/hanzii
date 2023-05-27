@@ -39,8 +39,7 @@
         </ng-container>
         <cdk-virtual-scroll-viewport *ngIf="vm.total !== 0"
                                      style="height: calc(100vh - 9rem);"
-                                     itemSize="69.77"
-                                     (scroll)="vm.selectedWord = null">
+                                     itemSize="69.77">
           <li *cdkVirtualFor="let word of vm.words; index as i"
               class="word"
               (click)="word !== vm.selectedWord ? onViewCharacter(word) : vm.selectedWord = null">
