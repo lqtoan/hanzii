@@ -6,7 +6,7 @@
 }
 .header {
   padding: 1rem calc(3 * 100vw / 12);
-  height: 5rem;
+  height: 6rem;
   background: $black;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@
   }
 }
 .main {
-  height: calc(100vh - 8rem);
+  height: calc(100vh - 9rem);
   padding: 1rem calc(3 * 100vw / 12);
   background: $white;
   overflow: hidden;
@@ -161,8 +161,8 @@
 
 ::ng-deep {
   .notification {
-    top: 6rem;
-    right: calc(3 * 100vw / 12 - 1rem);
+    top: 7rem;
+    right: calc(3 * 100vw / 12 - 0.5rem);
   }
 }
 
