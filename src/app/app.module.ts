@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -8,6 +9,7 @@ import { appRoutes } from './app.routes';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { CommonModule, registerLocaleData } from '@angular/common';
@@ -20,6 +22,7 @@ import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 registerLocaleData(vi);
 export function createTranslateLoader(http: HttpClient) {
@@ -38,7 +41,15 @@ export const nzConfig: NzConfig = {
   // }
 };
 
-const nzModules = [NzTagModule, NzSpinModule, NzInputModule, NzIconModule, ScrollingModule];
+const nzModules = [
+  NzTagModule,
+  NzSpinModule,
+  NzInputModule,
+  NzIconModule,
+  NzToolTipModule,
+  NzNotificationModule,
+  ScrollingModule,
+];
 
 @NgModule({
   declarations: [AppComponent],
@@ -48,6 +59,7 @@ const nzModules = [NzTagModule, NzSpinModule, NzInputModule, NzIconModule, Scrol
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     nzModules,
     TranslateModule.forRoot({

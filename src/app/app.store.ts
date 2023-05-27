@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import HanziWriter from 'hanzi-writer';
 
 import { debounceTime, finalize, switchMap, tap } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,6 +14,7 @@ export interface AppState {
   words: Word[];
   keyword: string;
   total: number | null;
+  selectedWord: Word | null;
 }
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
   words: [],
   keyword: '',
   total: null,
+  selectedWord: null,
 };
 
 @Injectable()
@@ -28,13 +31,14 @@ export class AppStore extends ComponentStore<AppState> {
     super(initialState);
   }
   readonly vm$ = this.select(
-    ({ gettingStatus, words, keyword, total }) => ({
+    ({ gettingStatus, words, keyword, total, selectedWord }) => ({
       isLoading: gettingStatus === 'loading',
       isSuccess: gettingStatus === 'success',
       isFail: gettingStatus === 'fail',
       words,
       keyword,
       total,
+      selectedWord,
     }),
     {
       debounce: true,
@@ -53,7 +57,7 @@ export class AppStore extends ComponentStore<AppState> {
   //#region Effect
   readonly loadAllWords = this.effect(($) =>
     $.pipe(
-      debounceTime(400),
+      debounceTime(DEFAULT_DEBOUNCE_TIME),
       tap(() => this.patchState({ gettingStatus: 'loading' })),
       switchMap(() =>
         this._service.getAllWords().pipe(
@@ -70,8 +74,8 @@ export class AppStore extends ComponentStore<AppState> {
               this.patchState({ gettingStatus: 'fail' });
               this._message.error(err.message);
             }
-          ),
-          finalize(() => this.patchState({ gettingStatus: null }))
+          )
+          // finalize(() => this.patchState({ gettingStatus: null }))
         )
       )
     )

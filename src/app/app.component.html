@@ -1,4 +1,5 @@
 <ng-container *ngIf="vm$ | async as vm">
+  <div class="top"></div>
   <div class="header">
     <img routerLink=""
          class="logo"
@@ -38,21 +39,18 @@
         </ng-container>
         <cdk-virtual-scroll-viewport *ngIf="vm.total !== 0"
                                      style="height: calc(100vh - 9rem);"
-                                     itemSize="69.77">
+                                     itemSize="69.77"
+                                     (scroll)="vm.selectedWord = null">
           <li *cdkVirtualFor="let word of vm.words; index as i"
-              class="word">
-            <span [style.width.%]="'100'"
-                  [style.color]="'#4c566a80'"
-                  [style.font-size.px]="'9'"
-                  [style.font-weight]="'500'"
-                  [style.line-height.%]="'100'"
-                  slot="index">{{ i + 1 }}:</span>
+              class="word"
+              (click)="word !== vm.selectedWord ? onViewCharacter(word) : vm.selectedWord = null">
+            <span class="word--index">{{ i + 1 }}:</span>
             <!-- <span *ngIf="word.updatedDate; else createdDate"
                   class="word--date">
               {{ 'UPDATED' | translate }}: {{ word.updatedDate | date : 'dd/MM/yyyy' }}</span> -->
-            <ng-template #createdDate>
+            <!-- <ng-template #createdDate>
               <span class="word--date"> {{ 'CREATED' | translate }}: {{ word.createdDate | date : 'dd/MM/yyyy' }}</span>
-            </ng-template>
+            </ng-template> -->
             <span class="word--name">{{ word.display }}</span>
             <span class="word--pinyin">[{{ word.pinyin }}]</span>
             <span *ngIf="word.chinaVietnamWord !== ''"
@@ -90,7 +88,11 @@
             <span class="word--define">{{ word.define | translate }}</span>
             <span *ngIf="word.reference"
                   class="word--reference">{{ 'DICTIONARY.REFERENCE' | translate }}: {{ word.reference }}</span>
+            <ng-container *ngIf="vm.selectedWord === word">
+              <div id="writer"></div>
+            </ng-container>
           </li>
+
         </cdk-virtual-scroll-viewport>
       </ng-template>
     </div>

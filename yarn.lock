@@ -5797,6 +5797,11 @@ handle-thing@^2.0.0:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.1.tgz#857f79ce359580c340d43081cc648970d0bb234e"
   integrity sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==
 
+hanzi-writer@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/hanzi-writer/-/hanzi-writer-3.5.0.tgz#4083203d8bbcfd6d7ed35305b349b7b060665aef"
+  integrity sha512-ItQ0xJ4AQ1jxH/vDlaNpIjuFxQac+LDg5UdhiNJkl0UC8cuZLyamI3Y6Yxm3j0hFmsBnBpUUu7RhIzcPG6AABA==
+
 harmony-reflect@^1.4.6:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/harmony-reflect/-/harmony-reflect-1.6.2.tgz#31ecbd32e648a34d030d86adb67d4d47547fe710"

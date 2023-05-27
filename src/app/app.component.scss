@@ -1,8 +1,12 @@
 @import '/src/styles.scss';
 
+.top {
+  height: 1rem;
+  background: linear-gradient(135deg, rgba($color: $primary-color, $alpha: 1), rgba($color: $blue, $alpha: 0.75));
+}
 .header {
   padding: 1rem calc(3 * 100vw / 12);
-  height: 7rem;
+  height: 5rem;
   background: $black;
   display: flex;
   align-items: center;
@@ -12,10 +16,8 @@
     width: auto;
     cursor: pointer;
   }
-  small {
-    color: $white;
-  }
   .search-input {
+    margin-bottom: 0.5rem;
     padding: 0.25rem 0.5rem;
     width: calc(25% + 8rem);
     border-radius: 0.5rem;
@@ -30,9 +32,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  small {
+    color: $white;
+  }
 }
 .main {
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 8rem);
   padding: 1rem calc(3 * 100vw / 12);
   background: $white;
   overflow: hidden;
@@ -51,7 +56,15 @@
       flex-flow: row wrap;
       align-items: baseline;
       align-content: flex-start;
+      transition: $transition;
       // scroll-snap-align: start;
+      &--index {
+        width: 100%;
+        color: '#4c566a80';
+        font-size: 9px;
+        font-weight: 500;
+        line-height: 100%;
+      }
       &--name {
         color: $red;
         font-size: 24px;
@@ -100,11 +113,19 @@
         line-height: 100%;
       }
       &--reference {
+        width: 100%;
         color: #ebcb8b;
         font-size: 11px;
         font-weight: 600;
         font-style: italic;
       }
+      #writer {
+        display: flex;
+      }
+    }
+    .word:hover {
+      cursor: pointer;
+      background: rgba($color: $second-white, $alpha: 0.25);
     }
     .loading {
       padding: 0.5rem;
@@ -128,7 +149,7 @@
 
 .copy-right {
   height: 1rem;
-  padding: 0 calc(3 * 100vw / 12);
+  padding: 0.5rem calc(3 * 100vw / 12);
   font-size: 10px;
 }
 
@@ -139,16 +160,29 @@
   font-size: 2rem;
 }
 
+::ng-deep {
+  .notification {
+    top: 6rem;
+    right: calc(3 * 100vw / 12 - 1rem);
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .header,
   .main {
     padding: 1rem;
   }
   .copy-right {
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
   }
   .facebook {
     right: 1rem;
+  }
+
+  ::ng-deep {
+    .notification {
+      right: calc(0);
+    }
   }
 }
 
