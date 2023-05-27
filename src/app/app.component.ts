@@ -23,8 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._store.vm$.pipe(takeUntil(this.destroy$)).subscribe((vm) => {
-      console.log(vm);
-
+      // console.log(vm);
       if (vm.isSuccess) {
         this._notificationService.create('info', 'Hướng dẫn', 'Bấm vào mỗi dòng để xem cách viết chữ', {
           nzDuration: 5000,
