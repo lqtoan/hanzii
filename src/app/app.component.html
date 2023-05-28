@@ -39,10 +39,11 @@
         </ng-container>
         <cdk-virtual-scroll-viewport *ngIf="vm.total !== 0"
                                      style="height: calc(100vh - 9rem);"
-                                     itemSize="69.77">
+                                     itemSize="69.77"
+                                     (scroll)="onScroll()">
           <li *cdkVirtualFor="let word of vm.words; index as i"
               class="word"
-              (click)="word !== vm.selectedWord ? onViewCharacter(word) : vm.selectedWord = null">
+              (click)="vm.selectedWord !== word ? onViewCharacter(word) : vm.selectedWord = null">
             <span class="word--index">{{ i + 1 }}:</span>
             <!-- <span *ngIf="word.updatedDate; else createdDate"
                   class="word--date">

@@ -23,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._store.vm$.pipe(takeUntil(this.destroy$)).subscribe((vm) => {
-      // console.log(vm);
       if (vm.isSuccess) {
         this._notificationService.create('info', 'Hướng dẫn', 'Bấm vào mỗi dòng để xem cách viết chữ', {
           nzDuration: 5000,
@@ -67,25 +66,27 @@ export class AppComponent implements OnInit, OnDestroy {
           radicalColor: '#337ab7', // blue
           delayBetweenLoops: 4000,
         }).loopCharacterAnimation();
-
-        if ('IntersectionObserver' in window) {
-          // const options = {
-          //   root: document.querySelector('#scrollArea'),
-          //   rootMargin: '0px',
-          //   threshold: 1.0,
-          // };
-
-          const observer = new IntersectionObserver((entries) =>
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) this._store.patchState({ selectedWord: null });
-            })
-          );
-
-          document.querySelectorAll('#writer').forEach((item) => {
-            observer.observe(item);
-          });
-        }
       }, i * 4000);
+    }
+  }
+
+  onScroll() {
+    if ('IntersectionObserver' in window) {
+      // const options = {
+      //   root: document.querySelector('#scrollArea'),
+      //   rootMargin: '0px',
+      //   threshold: 1.0,
+      // };
+
+      const observer = new IntersectionObserver((entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) this._store.patchState({ selectedWord: null });
+        })
+      );
+
+      document.querySelectorAll('#writer').forEach((item) => {
+        observer.observe(item);
+      });
     }
   }
 }
