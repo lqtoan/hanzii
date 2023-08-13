@@ -1,7 +1,7 @@
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { AppService, Word } from './app.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AppStore } from './app.store';
 import HanziWriter from 'hanzi-writer';
 import { Subject, takeUntil } from 'rxjs';
@@ -21,13 +21,15 @@ export class AppComponent implements OnInit, OnDestroy {
   timeoutId: NodeJS.Timeout | undefined;
   readonly destroy$ = new Subject<void>();
 
+  // @ViewChild('wordListViewport', { static: false }) wordListTemplate: ElementRef<HTMLDivElement> | undefined;
+
   ngOnInit(): void {
     this._store.vm$.pipe(takeUntil(this.destroy$)).subscribe((vm) => {
       if (vm.isSuccess) {
-        this._notificationService.create('info', 'Hướng dẫn', 'Bấm vào mỗi dòng để xem cách viết chữ', {
-          nzDuration: 5000,
-          nzClass: 'notification',
-        });
+        // this._notificationService.create('info', 'Hướng dẫn', 'Bấm vào mỗi dòng để xem cách viết chữ', {
+        //   nzDuration: 5000,
+        //   nzClass: 'notification',
+        // });
       }
     });
 

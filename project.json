@@ -64,7 +64,11 @@
           "browserTarget": "hanzii:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "hmr": true,
+        "port": 4300
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

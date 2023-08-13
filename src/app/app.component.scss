@@ -5,8 +5,8 @@
   background: linear-gradient(135deg, rgba($color: $primary-color, $alpha: 1), rgba($color: $blue, $alpha: 0.75));
 }
 .header {
-  padding: 1rem calc(3 * 100vw / 12);
   height: 6rem;
+  padding: 1rem calc(3 * 100vw / 12);
   background: $black;
   display: flex;
   align-items: center;
@@ -35,83 +35,96 @@
     color: $white;
   }
 }
+
 .main {
   height: calc(100vh - 9rem);
   padding: 1rem calc(3 * 100vw / 12);
   background: $white;
   overflow: hidden;
-  .list {
-    height: 100%;
+
+  // scroll-snap-type: y mandatory;
+  .no-result {
+    height: calc(100vh - 11rem);
     background: #fff;
-    overflow: scroll;
     border-radius: 0.5rem;
-    // scroll-snap-type: y mandatory;
+  }
+  .list {
+    height: calc(100vh - 11rem);
+    background: #fff;
+    overflow-y: scroll;
+    border-radius: 0.5rem;
     .word {
       position: relative;
-      min-height: 69.77px;
+      min-height: 82.5px;
       padding: 0.25rem 0.5rem 0;
       border-bottom: 1px solid rgba($color: $gray, $alpha: 0.25);
       display: flex;
       flex-flow: row wrap;
       align-items: baseline;
       align-content: flex-start;
-      transition: $transition;
       // scroll-snap-align: start;
-      &--index {
+      &__index {
         width: 100%;
         color: '#4c566a80';
         font-size: 9px;
         font-weight: 500;
         line-height: 100%;
       }
-      &--name {
+      &__name {
+        width: 100%;
         color: $red;
         font-size: 24px;
         line-height: 100%;
         letter-spacing: 1px;
         font-family: 'Noto Serif SC', serif;
       }
-      &--pinyin {
-        margin-left: 0.25rem;
+      &__pinyin {
         color: #81a1c1;
       }
-      &--chivi {
+      &__chivi {
         margin-left: 0.125rem;
         color: $blue;
       }
-      &--type {
-        margin-left: 0.5rem;
-        .ant-tag {
-          padding: 0 0.25rem;
-          font-size: $font-size;
-          color: rgba($color: $gray, $alpha: 0.5);
+      &-tags {
+        margin-left: auto;
+        &__type {
+          margin-right: 0.25rem;
+          .ant-tag {
+            margin: 0;
+            font-size: $font-size;
+            padding: 0 0.25rem;
+            color: rgba($color: $gray, $alpha: 0.5);
+            border-radius: 7px;
+            border-width: 1px;
+          }
+        }
+        &__hsk {
+          .ant-tag {
+            margin: 0;
+            padding: 0 0.25rem;
+            width: 3rem;
+            font-weight: 500;
+            border-radius: 7px;
+            border-width: 1px;
+          }
         }
       }
-      &--define {
-        width: 100%;
+
+      &__define {
+        width: calc(100% - 2rem);
         color: $gray;
         font-weight: 500;
         word-wrap: break-word;
       }
-      &--hsk {
-        margin-left: auto;
-        .ant-tag {
-          margin: 0;
-          padding: 0 0.25rem;
-          width: 3rem;
-          font-weight: 500;
-          border-radius: 7.5px;
-          border-width: 1.5px;
-        }
-      }
-      &--date {
+
+      &__date {
         width: 90%;
         color: rgba($color: $gray, $alpha: 0.5);
         font-size: 9px;
         text-align: right;
         line-height: 100%;
       }
-      &--reference {
+      &__reference {
         width: 100%;
         color: #ebcb8b;
         font-size: 11px;
@@ -126,22 +139,28 @@
       cursor: pointer;
       background: rgba($color: $second-white, $alpha: 0.25);
     }
-    .loading {
-      padding: 0.5rem;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      .slogan {
-        text-align: center;
-        margin-top: 1rem;
-      }
-    }
-    .img {
-      margin: auto;
-      margin-top: 15vh;
-      width: 75%;
+  }
+
+  /****************** thumbnail ******************/
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $blue;
+    border-radius: 4px;
+  }
+
+  .loading {
+    padding: 0.5rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .slogan {
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 }
