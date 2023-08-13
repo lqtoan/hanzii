@@ -72,6 +72,7 @@
       }
       &__name {
         width: 100%;
+        z-index: 2;
         color: $red;
         font-size: 24px;
         line-height: 100%;
@@ -86,7 +87,10 @@
         color: $blue;
       }
       &-tags {
-        margin-left: auto;
+        z-index: 1;
+        position: absolute;
+        top: 16px;
+        right: 0.5rem;
         &__type {
           margin-right: 0.25rem;
           .ant-tag {
