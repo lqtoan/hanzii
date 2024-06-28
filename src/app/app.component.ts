@@ -1,7 +1,7 @@
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { AppService, Word } from './app.service';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppStore } from './app.store';
 import HanziWriter from 'hanzi-writer';
 import { Subject, takeUntil } from 'rxjs';
