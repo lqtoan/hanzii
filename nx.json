@@ -21,11 +21,7 @@
       "inputs": ["default", "^production"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore"
-      ]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.eslintignore"]
     }
   },
   "namedInputs": {
@@ -54,5 +50,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "hanzii"
+  "defaultProject": "hanzii",
+  "nxCloudAccessToken": "NjY0YmMyNzYtMWMyNC00YTg0LWE4MWItZDVmMmNmYzc4YTE1fHJlYWQtd3JpdGU="
 }

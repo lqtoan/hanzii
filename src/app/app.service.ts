@@ -21,7 +21,10 @@ export interface Word {
 export class AppService {
   constructor(private readonly _httpClient: HttpClient) {}
 
-  private API = 'https://super-chinese.cyclic.app/api/words';
+  // api: 'https://silky-jamie-superchinese-188ed003.koyeb.app/api/',
+  // webSocket: 'wss://silky-jamie-superchinese-188ed003.koyeb.app/api/',
+
+  private API = 'https://silky-jamie-superchinese-188ed003.koyeb.app/api/words';
 
   getAllWords(): Observable<Word[]> {
     return this._httpClient.get<Word[]>(`${this.API}`);
